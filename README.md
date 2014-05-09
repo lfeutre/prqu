@@ -2,7 +2,7 @@
 
 <img src="resources/images/prqu.png"/>
 
-**PR Queues for Github Projects**
+*PR Queues for Github Projects*
 
 ## Introduction
 
@@ -29,4 +29,9 @@ Add content to me here!
 Usage
 =====
 
-Add content to me here!
+Here's how you start using prqu:
+
+* Copy the sample configuration file ``./etc/prqu-sample.conf`` to
+  ``./etc/prqu.conf``
+* Edit the entries in the ``[repos]`` section.
+* Reload your page (e.g., <a href="http://localhost:5099/">localhost:5099</a>)
