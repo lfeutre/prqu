@@ -36,11 +36,18 @@
             (title title)
             (link '(rel "stylesheet" href "/css/bootstrap-min.css"))
             (link '(rel "stylesheet" href "/css/bootstrap-slate-min.css"))
+            (link '(rel "stylesheet" href "/css/styles.css"))
+            (link '(rel "icon" type "image/png" href "/icons/favicon.png"))
             (script '(src "/js/bootstrap-min.js"))))
         (body
           (main
             (list
               (get-navbar)
+              (a '(href "https://github.com/lfe/prqu")
+                 (img '(style "position: absolute; top: 0; right: 0; border: 0;"
+                        src "https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67"
+                        alt "Fork me on GitHub"
+                        data-canonical-src "https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png")))
               (div '(class "section")
                 (div '(class "container")
                   (div '(class "row well")
@@ -57,7 +64,7 @@
   "1-arity content API function.
 
   This function generates its HTML from scratch."
-  (let ((title '"Main Page"))
+  (let ((title '"prqu &#x21CB; Github PR Queues"))
     (: prqu-util make-200-result
         (base-sidebar-page
           title
@@ -66,10 +73,19 @@
               (get-side-menu)))
           (div
             (list
+              (img '(class "logo" src "/images/prqu.png"))
               (h1 title)
-              (h2 '"Introduction")
+              (h2 "Queues")
+              (h3 "Accounts")
               (div
-                (p '"This is the main page. Links are to the left."))))))))
+                (p "[Account/user queues here]"))
+              (h3 "Organziations")
+              (div
+                (p "[org queues here]"))
+              (h3 "Projects")
+              (div
+                (p "[project queues here]"))
+              ))))))
 
 (defun get-content (item-id arg-data)
   "2-arity content API.
