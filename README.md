@@ -31,7 +31,9 @@ Usage
 
 Here's how you start using prqu:
 
-* Copy the sample configuration file ``./etc/prqu-sample.conf`` to
-  ``./etc/prqu.conf``
-* Edit the entries in the ``[repos]`` section.
-* Reload your page (e.g., <a href="http://localhost:5099/">localhost:5099</a>)
+* Copy the sample configuration file ``./etc/user-sample.conf`` to
+  ``./etc/user.conf``
+* Edit the entries in the ``[orgs]``, ``[accounts]``, and ``[projects]``
+  sections.
+* Reload your page (e.g.,
+  <a href="http://localhost:5099/">localhost:5099</a>)
