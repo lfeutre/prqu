@@ -1,6 +1,6 @@
 # prqu [![Build Status](https://travis-ci.org/lfe/prqu.png?branch=master)](https://travis-ci.org/lfe/prqu)
 
-<img src="resources/images/prqu.png"/>
+<img src="resources/public/images/prqu.png"/>
 
 *PR Queues for Github Projects*
 
