@@ -3,6 +3,31 @@
 
 (include-lib "deps/yaws/include/yaws_api.hrl")
 
+(defun get-prqu-version ()
+  (lfe-utils:get-app-src-version '"src/prqu.app.src"))
+
+(defun get-version ()
+  (++ (lfe-utils:get-version)
+      `(#(prqu ,(get-prqu-version)))))
+
+(defun get-apps ()
+  (lists:sort
+    (lists:map
+      (lambda (x) (element 1 x))
+      (application:which_applications))))
+
+(defun get-running ()
+  (lists:sort
+    (sets:to_list
+      (sets:intersection
+        (sets:from_list (get-apps))
+        (sets:from_list '(econfig gproc))))))
+
+(defun running? ()
+  (case (get-running)
+    ('() 'false)
+    (_ 'true)))
+
 (defun parse-path (arg-data)
   "Get pathinfo. This is used as the key to refer to specific preferences.
 

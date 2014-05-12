@@ -1,12 +1,6 @@
 (defmodule prqu-settings
   (export all))
 
-(defun get-apps ()
-  (lists:sort
-    (lists:map
-      (lambda (x) (element 1 x))
-      (application:which_applications))))
-
 (defun register ()
   (let ((result (econfig:register_config
                   (prqu-const:config-name)
@@ -27,20 +21,8 @@
         (register-status (register)))
     `(,gproc-status ,econfig-status ,register-status)))
 
-(defun get-running ()
-  (lists:sort
-    (sets:to_list
-      (sets:intersection
-        (sets:from_list (get-apps))
-        (sets:from_list '(econfig gproc))))))
-
-(defun running? ()
-  (case (get-running)
-    ('() 'false)
-    (_ 'true)))
-
 (defun start ()
-  (if (running?)
+  (if (prqu-util:running?)
     #(skipped "Already running.")
     (let ((status (get-status)))
       (case status

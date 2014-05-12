@@ -7,13 +7,16 @@
   "2-arity routes for our app."
   ;; /
   (((list '"") arg-data)
-    (: prqu-content get-sidebar-content arg-data))
+    (prqu-content:get-sidebar-content arg-data))
   ;; /content/:id
   (((list '"content" item-id) arg-data)
-    (: prqu-content get-content item-id arg-data))
+    (prqu-content:get-content item-id arg-data))
   ;; /relation/:userid/:accountid
   (((list '"relation" user-id account-id) arg-data)
-    (: prqu-content get-content user-id account-id arg-data))
+    (prqu-content:get-content user-id account-id arg-data))
+  ;; /auth/github/callback
+  (((list "auth" "gtihub" "callback") arg-data)
+    (prqu-oauth2:github-callback arg-data))
   ;; potentially many other routes
   ;;
   ;; When nothing matches, do this
