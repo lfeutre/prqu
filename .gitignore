@@ -9,3 +9,5 @@ bin/expm
 *.dump
 .rebar
 logs/*
+etc/prqu-access-token
+etc/user.conf
