@@ -41,6 +41,7 @@ clean-eunit:
 compile: get-deps clean-ebin
 	@echo "Compiling project code and dependencies ..."
 	@which rebar.cmd >/dev/null 2>&1 && rebar.cmd compile || rebar compile
+	@cd deps/jiffy/ && make && cd -
 
 compile-no-deps: clean-ebin
 	@echo "Compiling only project code ..."
@@ -52,12 +53,14 @@ compile-tests:
 shell: compile
 	@which clear >/dev/null 2>&1 && clear || printf "\033c"
 	@echo "Starting shell ..."
-	@PATH=$(SCRIPT_PATH) lfetool repl
+	@PATH=$(SCRIPT_PATH) lfetool repl lfe -s 'prqu-settings' -s inets -s ssl \
+	-s lhttpc
 
 shell-no-deps: compile-no-deps
 	@which clear >/dev/null 2>&1 && clear || printf "\033c"
 	@echo "Starting shell ..."
-	@PATH=$(SCRIPT_PATH) lfetool repl
+	@PATH=$(SCRIPT_PATH) lfetool repl lfe -s 'prqu-settings' -s inets -s ssl \
+	-s lhttpc
 
 clean: clean-ebin clean-eunit
 	@which rebar.cmd >/dev/null 2>&1 && rebar.cmd clean || rebar clean

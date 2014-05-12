@@ -10,12 +10,12 @@ app-deps:
 dev: app-deps compile-no-deps
 	@ERL_LIBS=$(shell lfetool info erllibs) \
 	$(YAWS) -i --conf $(YAWS_CONF) --id $(YAWS_SERVER_ID) \
-	--runmod 'prqu-settings'
+	--runmod 'prqu-settings' --runmod inets --runmod ssl
 
 run: app-deps compile
 	@ERL_LIBS=$(shell lfetool info erllibs) \
 	$(YAWS) -D --heart --conf $(YAWS_CONF) --id $(YAWS_SERVER_ID) \
-	--runmod 'prqu-settings'
+	--runmod 'prqu-settings' --runmod inets --runmod ssl
 
 update-conf:
 	@ERL_LIBS=$(ERL_LIBS) $(YAWS) -h --conf $(YAWS_CONF) --id $(YAWS_SERVER_ID)
