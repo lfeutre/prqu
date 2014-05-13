@@ -23,7 +23,9 @@ directory of this project when you run ``make deps``:
 
 ## Running
 
-Add content to me here!
+``make dev`` and the load up
+<a href="http://localhost:5099/">localhost:5099</a>
+in your browser.
 
 
 Usage
