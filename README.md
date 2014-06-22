@@ -1,4 +1,4 @@
-# prqu [![Build Status](https://travis-ci.org/lfe/prqu.png?branch=master)](https://travis-ci.org/lfe/prqu)
+# prqu [![Build Status](https://travis-ci.org/lfex/prqu.png?branch=master)](https://travis-ci.org/lfex/prqu)
 
 <img src="resources/public/images/prqu.png"/>
 
